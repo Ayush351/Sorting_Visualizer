@@ -8,7 +8,7 @@ import quickSort from '../algorithms/quickSort';
 import heapSort from '../algorithms/heapSort';
 import insertionSort from '../algorithms/insertionSort';
 import countingSort from '../algorithms/countingSort';
-import radixSort from '../algorithms/radixSort'; // Import radix sort algorithm
+import radixSort from '../algorithms/radixSort';
 import '../styles/SortingVisualizer.css';
 
 function SortingVisualizer() {
@@ -61,8 +61,9 @@ function SortingVisualizer() {
 
   const generateRandomArray = () => {
     const newArray = [];
+    const max = 1000; // Adjust maximum value for better visualization
     for (let i = 0; i < arrayLength; i++) {
-      newArray.push(randomIntFromInterval(10, 380));
+      newArray.push(randomIntFromInterval(10, max));
     }
     setArray(newArray);
   };
@@ -86,7 +87,7 @@ function SortingVisualizer() {
       />
       <div className="array-container">
         {array.map((value, idx) => (
-          <ArrayBar key={idx} value={value} idx={idx} />
+          <ArrayBar key={idx} value={value} idx={idx} max={1000} />
         ))}
       </div>
     </div>

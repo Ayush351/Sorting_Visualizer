@@ -1,0 +1,8 @@
+/* ArrayBar.css */
+.array-bar {
+    width: 20px; /* Adjust the width as needed */
+    margin: 0 1px; /* Adjust the margin as needed */
+    background-color: rgba(0, 0, 255, 1); /* Default color */
+    border: 1px solid #000; /* Border */
+  }
+  

@@ -1,8 +1,15 @@
 /* ArrayBar.css */
 .array-bar {
-    width: 20px; /* Adjust the width as needed */
-    margin: 0 1px; /* Adjust the margin as needed */
+    flex: 1; /* Grow and shrink equally to fit the container */
+    margin: 0 2px; /* Adjust the margin for larger viewports */
     background-color: rgba(0, 0, 255, 1); /* Default color */
     border: 1px solid #000; /* Border */
+  }
+  
+  /* Media query for smaller viewports (e.g., mobile devices) */
+  @media screen and (max-width: 600px) {
+    .array-bar {
+      margin: 0 1px; /* Adjust the margin for smaller viewports */
+    }
   }
   

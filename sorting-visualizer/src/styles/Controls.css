@@ -1,0 +1,39 @@
+/* Controls.css */
+.controls {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .control-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .control-row label {
+    margin-right: 10px;
+  }
+  
+  .control-row select,
+  .control-row input[type="range"] {
+    margin-right: 10px;
+  }
+  
+  .control-row button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .control-row button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

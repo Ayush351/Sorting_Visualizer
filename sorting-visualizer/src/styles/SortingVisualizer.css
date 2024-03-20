@@ -5,24 +5,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  padding: 20px; /* Add padding around the content */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  border: 1px solid #ccc; /* Optional border for visual separation */
 }
 
 .array-container {
   display: flex;
-  flex-direction: row-reverse; /* Arrange bars from right to left */
+  flex-direction: row; /* Arrange bars horizontally */
   align-items: flex-end; /* Align bars at the bottom */
-  justify-content: flex-end; /* Justify content to the end */
-  width: 600px; /* Adjust width as needed */
-  height: 400px; /* Adjust height as needed */
-  border: 1px solid #ccc;
-  padding: 20px;
+  justify-content: space-evenly; /* Evenly space bars */
+  width: 100%; /* Take up complete width */
+  height: 200px; /* Adjust height as needed */
+  padding: 20px; /* Add padding around the array container */
+  box-sizing: border-box; /* Include padding in the width calculation */
   overflow-x: auto; /* Enable horizontal scroll if bars exceed container width */
-  margin-top: 20px;
 }
 
 .array-bar {
-  width: 20px; /* Adjust width as needed */
+  flex: 1; /* Grow and shrink equally to fit the container */
   background-color: blue;
-  margin-left: 2px; /* Adjust spacing between bars */
+  margin: 0 2px; /* Adjust spacing between bars */
 }
+
+

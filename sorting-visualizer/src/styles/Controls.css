@@ -1,39 +1,79 @@
 /* Controls.css */
 .controls {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap; /* Allow controls to wrap to the next line if needed */
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add margin between control rows */
+}
+
+.control-row label {
+  margin-right: 10px;
+}
+
+.control-row select,
+.control-row input[type="range"] {
+  margin-right: 10px;
+}
+
+.control-row button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.control-row button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Media query for smaller viewports */
+@media screen and (max-width: 600px) {
+  .controls {
+    padding: 10px; /* Adjust padding for smaller viewports */
   }
-  
+
   .control-row {
-    display: flex;
-    align-items: center;
+    flex-direction: column; /* Change layout to column for smaller viewports */
+    align-items: flex-start; /* Align controls to the start */
   }
-  
-  .control-row label {
-    margin-right: 10px;
-  }
-  
+
+  .control-row label,
   .control-row select,
-  .control-row input[type="range"] {
-    margin-right: 10px;
-  }
-  
+  .control-row input[type="range"],
   .control-row button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin-right: 0; /* Remove right margin for smaller viewports */
+    margin-bottom: 5px; /* Add bottom margin between controls */
   }
-  
-  .control-row button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+}
+
+/* Controls.css */
+.control-row button:first-child {
+  margin-bottom: 10px; /* Add margin between generate array and sorting button */
+}
+
+/* Controls.css */
+.control-row button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Add margin between buttons */
+}
+
+.control-row button:last-child {
+  margin-right: 0; /* Remove margin from last button */
+}

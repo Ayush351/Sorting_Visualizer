@@ -6,7 +6,7 @@ function ArrayBar({ value, idx, max }) {
   const height = `${(value / max) * 90}%`; // Adjust the height based on the maximum value
   const barStyle = {
     height: height,
-    backgroundColor: `rgba(0, 0, 255, ${value / max})`, // Adjust color based on value
+    backgroundColor: `rgba(8, 49, 68, ${value / max})`, // Adjust color based on value
   };
 
   return <div className="array-bar" style={barStyle}></div>;

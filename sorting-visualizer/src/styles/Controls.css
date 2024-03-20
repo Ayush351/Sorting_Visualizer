@@ -1,12 +1,10 @@
 /* Controls.css */
 .controls {
   display: flex;
-  flex-wrap: wrap; /* Allow controls to wrap to the next line if needed */
-  justify-content: center;
+  flex-direction: column; /* Stack controls vertically */
   padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #083144; 
+  color: #fff; /* Light text color */
 }
 
 .control-row {
@@ -17,63 +15,98 @@
 
 .control-row label {
   margin-right: 10px;
+  color: #fff; /* White text color */
 }
 
 .control-row select,
 .control-row input[type="range"] {
   margin-right: 10px;
+  border: 1px solid #fff; /* White border color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px; /* Add padding */
+  background-color: #083144; /* White background color */
+  color: white; /* Dark text color */
+  border-color: #fff;
+}
+
+.control-row select option {
+  background-color: #083144; /* Background color for options */
+  color: white; /* Text color for options */
+}
+
+.control-row select option:hover {
+  background-color: #fff; /* Change background color of hovered option */
+  color: black; /* Change text color of hovered option */
 }
 
 .control-row button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 8px 16px;
+  background-color: #fff; /* Primary button color */
+  color: #083144; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.control-row button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Media query for smaller viewports */
-@media screen and (max-width: 600px) {
-  .controls {
-    padding: 10px; /* Adjust padding for smaller viewports */
-  }
-
-  .control-row {
-    flex-direction: column; /* Change layout to column for smaller viewports */
-    align-items: flex-start; /* Align controls to the start */
-  }
-
-  .control-row label,
-  .control-row select,
-  .control-row input[type="range"],
-  .control-row button {
-    margin-right: 0; /* Remove right margin for smaller viewports */
-    margin-bottom: 5px; /* Add bottom margin between controls */
-  }
-}
-
-/* Controls.css */
-.control-row button:first-child {
-  margin-bottom: 10px; /* Add margin between generate array and sorting button */
-}
-
-/* Controls.css */
-.control-row button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px; /* Add margin between buttons */
+  border-color: #083144 2px solid;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .control-row button:last-child {
-  margin-right: 0; /* Remove margin from last button */
+  margin-left: auto; /* Push the last button to the right */
+}
+
+.control-row button:hover {
+  background-color: #95A7AF; /* Darker shade on hover */
+}
+
+/* Media query for small and medium viewports */
+@media screen and (max-width: 992px) {
+  .control-row {
+    flex-direction: column; /* Stack controls vertically for smaller screens */
+    align-items: flex-start; /* Align controls to the start */
+  }
+
+  .control-row button:last-child {
+    margin-left: 0; /* Remove left margin on small and medium screens */
+    margin-top: 5px; /* Add margin between buttons */
+    align-self: flex-start; /* Align button to the start */
+  }
+
+  .control-row select,
+  .control-row input[type="range"] {
+    width: 100%; /* Set width to fill container */
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  outline: none;
+  appearance: none;
+  border: none; /* Remove border */
+}
+
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: white; /* Active part color */
+  border-radius: 50px; /* Rounded corners */
+}
+
+.slider::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: white; /* Active part color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px; /* Reduce the size of the pointer */
+  height: 10px; /* Reduce the size of the pointer */
+  background: #083144;
+  cursor: pointer;
+  border-radius: 50%; /* Make the pointer circular */
+  border-color: white;
 }

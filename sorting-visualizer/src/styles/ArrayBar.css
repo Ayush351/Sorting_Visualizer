@@ -2,7 +2,7 @@
 .array-bar {
     flex: 1; /* Grow and shrink equally to fit the container */
     margin: 0 2px; /* Adjust the margin for larger viewports */
-    background-color: rgba(0, 0, 255, 1); /* Default color */
+    background-color: rgba(8, 49, 68, 1); /* Default color */
     border: 1px solid #000; /* Border */
   }
   

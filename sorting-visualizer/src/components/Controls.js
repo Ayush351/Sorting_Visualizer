@@ -7,9 +7,9 @@ function Controls({ arrayLength, delay, algorithm, onArrayLengthChange, onDelayC
     <div className="controls">
       <div className="control-row">
         <label>Array Length:</label>
-        <input type="range" min="5" max="100" value={arrayLength} onChange={onArrayLengthChange} />
+        <input class="slider" type="range" min="5" max="100" value={arrayLength} onChange={onArrayLengthChange} />
         <label>Delay (ms):</label>
-        <input type="range" min="1" max="100" value={delay} onChange={onDelayChange} />
+        <input class="slider" type="range" min="1" max="100" value={delay} onChange={onDelayChange} />
         <label>Algorithm:</label>
         <select value={algorithm} onChange={onAlgorithmChange}>
           <option value="Bubble Sort">Bubble Sort</option>

@@ -1,35 +1,39 @@
 // mergeSort.js
-function mergeSort(array) {
-    if (array.length <= 1) {
-      return [array];
+async function mergeSort(array, start, end, steps = []) {
+    if (start < end) {
+      const middle = Math.floor((start + end) / 2);
+      await mergeSort(array, start, middle, steps);
+      await mergeSort(array, middle + 1, end, steps);
+      await merge(array, start, middle, end, steps);
     }
-  
-    const middle = Math.floor(array.length / 2);
-    const left = array.slice(0, middle);
-    const right = array.slice(middle);
-  
-    const leftParts = mergeSort(left);
-    const rightParts = mergeSort(right);
-  
-    const merged = merge(leftParts[leftParts.length - 1], rightParts[rightParts.length - 1]);
-  
-    return [...leftParts.slice(0, -1), ...rightParts.slice(0, -1), merged];
+    return steps;
   }
   
-  function merge(left, right) {
-    let result = [];
-    let leftIdx = 0;
-    let rightIdx = 0;
+  async function merge(array, start, middle, end, steps) {
+    const left = array.slice(start, middle + 1);
+    const right = array.slice(middle + 1, end + 1);
+    let leftIdx = 0,
+      rightIdx = 0,
+      arrayIdx = start;
+  
     while (leftIdx < left.length && rightIdx < right.length) {
-      if (left[leftIdx] < right[rightIdx]) {
-        result.push(left[leftIdx]);
-        leftIdx++;
+      if (left[leftIdx] <= right[rightIdx]) {
+        array[arrayIdx++] = left[leftIdx++];
       } else {
-        result.push(right[rightIdx]);
-        rightIdx++;
+        array[arrayIdx++] = right[rightIdx++];
       }
+      steps.push(array.slice()); // Push current state of array to steps
     }
-    return result.concat(left.slice(leftIdx)).concat(right.slice(rightIdx));
+  
+    while (leftIdx < left.length) {
+      array[arrayIdx++] = left[leftIdx++];
+      steps.push(array.slice()); // Push current state of array to steps
+    }
+  
+    while (rightIdx < right.length) {
+      array[arrayIdx++] = right[rightIdx++];
+      steps.push(array.slice()); // Push current state of array to steps
+    }
   }
   
   export default mergeSort;

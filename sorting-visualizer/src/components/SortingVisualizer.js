@@ -1,5 +1,3 @@
-// SortingVisualizer.js
-
 import React, { useState } from 'react';
 import Controls from './Controls';
 import ArrayBar from './ArrayBar';
@@ -16,27 +14,29 @@ function SortingVisualizer() {
 
   const startSorting = async () => {
     setSorting(true);
-
+  
+    let steps = [];
     switch (algorithm) {
       case 'Bubble Sort':
-        await animateSorting(bubbleSort(array.slice()));
+        steps = await bubbleSort(array.slice());
         break;
       case 'Merge Sort':
-        await animateSorting(mergeSort(array.slice()));
+        steps = await mergeSort(array.slice(), 0, array.length - 1, []);
         break;
       default:
         break;
     }
-
-    setSorting(false);
-  };
-
-  const animateSorting = async (steps) => {
+  
     for (let i = 0; i < steps.length; i++) {
       await new Promise((resolve) => setTimeout(resolve, delay));
       setArray(steps[i]);
     }
+  
+    setSorting(false);
   };
+  
+  
+  
 
   const generateRandomArray = () => {
     const newArray = [];

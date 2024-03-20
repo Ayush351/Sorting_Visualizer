@@ -1,0 +1,7 @@
+/* SortingVisualizer.css */
+.array-bar {
+    width: 20px;
+    margin-left: 2px;
+    transition: height 0.3s ease-in-out;
+  }
+  

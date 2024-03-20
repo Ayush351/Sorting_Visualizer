@@ -1,20 +1,19 @@
 // selectionSort.js
-function selectionSort(array) {
-    const len = array.length;
-    for (let i = 0; i < len - 1; i++) {
-      let minIdx = i;
-      for (let j = i + 1; j < len; j++) {
-        if (array[j] < array[minIdx]) {
-          minIdx = j;
+async function selectionSort(array, steps = []) {
+    const length = array.length;
+    for (let i = 0; i < length - 1; i++) {
+      let minIndex = i;
+      for (let j = i + 1; j < length; j++) {
+        if (array[j] < array[minIndex]) {
+          minIndex = j;
         }
       }
-      if (minIdx !== i) {
-        const temp = array[i];
-        array[i] = array[minIdx];
-        array[minIdx] = temp;
+      if (minIndex !== i) {
+        [array[i], array[minIndex]] = [array[minIndex], array[i]]; // Swap elements
+        steps.push(array.slice()); // Push current state of array to steps
       }
     }
-    return array;
+    return steps;
   }
   
   export default selectionSort;

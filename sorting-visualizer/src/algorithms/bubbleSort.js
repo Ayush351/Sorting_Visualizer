@@ -1,5 +1,7 @@
 // bubbleSort.js
 function bubbleSort(array) {
+    const steps = [array.slice()];
+  
     const len = array.length;
     let swapped;
     do {
@@ -10,10 +12,12 @@ function bubbleSort(array) {
           array[i] = array[i + 1];
           array[i + 1] = temp;
           swapped = true;
+          steps.push(array.slice());
         }
       }
     } while (swapped);
-    return array;
+  
+    return steps;
   }
   
   export default bubbleSort;

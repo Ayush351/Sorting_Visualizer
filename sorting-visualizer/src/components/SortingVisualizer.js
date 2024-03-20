@@ -1,11 +1,11 @@
 // SortingVisualizer.js
+
 import React, { useState } from 'react';
 import Controls from './Controls';
 import ArrayBar from './ArrayBar';
 import bubbleSort from '../algorithms/bubbleSort';
-import selectionSort from '../algorithms/selectionSort';
 import mergeSort from '../algorithms/mergeSort';
-import './SortingVisualizer.css'; 
+import '../styles/SortingVisualizer.css';
 
 function SortingVisualizer() {
   const [array, setArray] = useState([]);
@@ -14,47 +14,28 @@ function SortingVisualizer() {
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const [sorting, setSorting] = useState(false);
 
-  const startSorting = () => {
+  const startSorting = async () => {
     setSorting(true);
+
     switch (algorithm) {
       case 'Bubble Sort':
-        bubbleSortHelper();
-        break;
-      case 'Selection Sort':
-        selectionSortHelper();
+        await animateSorting(bubbleSort(array.slice()));
         break;
       case 'Merge Sort':
-        mergeSortHelper();
+        await animateSorting(mergeSort(array.slice()));
         break;
       default:
         break;
     }
+
+    setSorting(false);
   };
 
-  const bubbleSortHelper = () => {
-    const sortedArray = bubbleSort(array.slice());
-    animateSorting(sortedArray);
-  };
-
-  const selectionSortHelper = () => {
-    const sortedArray = selectionSort(array.slice());
-    animateSorting(sortedArray);
-  };
-
-  const mergeSortHelper = () => {
-    const sortedArray = mergeSort(array.slice());
-    animateSorting(sortedArray);
-  };
-
-  const animateSorting = (sortedArray) => {
-    for (let i = 0; i < sortedArray.length; i++) {
-      setTimeout(() => {
-        setArray(sortedArray.slice(0, i + 1));
-      }, i * delay);
+  const animateSorting = async (steps) => {
+    for (let i = 0; i < steps.length; i++) {
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      setArray(steps[i]);
     }
-    setTimeout(() => {
-      setSorting(false);
-    }, sortedArray.length * delay);
   };
 
   const generateRandomArray = () => {
@@ -82,7 +63,7 @@ function SortingVisualizer() {
         onStartSorting={startSorting}
         sorting={sorting}
       />
-      <div className="card">
+      <div className="array-container">
         {array.map((value, idx) => (
           <ArrayBar key={idx} value={value} idx={idx} />
         ))}

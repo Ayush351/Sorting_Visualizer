@@ -1,0 +1,28 @@
+/* SortingVisualizer.css */
+
+.sorting-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.array-container {
+  display: flex;
+  flex-direction: row-reverse; /* Arrange bars from right to left */
+  align-items: flex-end; /* Align bars at the bottom */
+  justify-content: flex-end; /* Justify content to the end */
+  width: 600px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+  border: 1px solid #ccc;
+  padding: 20px;
+  overflow-x: auto; /* Enable horizontal scroll if bars exceed container width */
+  margin-top: 20px;
+}
+
+.array-bar {
+  width: 20px; /* Adjust width as needed */
+  background-color: blue;
+  margin-left: 2px; /* Adjust spacing between bars */
+}

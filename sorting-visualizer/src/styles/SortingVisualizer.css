@@ -8,6 +8,8 @@
   padding: 20px; /* Add padding around the content */
   box-sizing: border-box; /* Include padding in the width calculation */
   border: 1px solid #ccc; /* Optional border for visual separation */
+
+  
 }
 
 .array-container {
@@ -29,3 +31,30 @@
 }
 
 
+/* SortingVisualizer.css */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Align items from left to right */
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.card {
+  margin-right: 10px; /* Add margin between cards */
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    justify-content: center; /* Center cards vertically */
+    align-items: stretch;
+  }
+
+  .card {
+    margin: 10px 0; /* Add margin between cards */
+  }
+}

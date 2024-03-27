@@ -1,24 +1,28 @@
 // bubbleSort.js
-function bubbleSort(array) {
-    const steps = [array.slice()];
-  
-    const len = array.length;
-    let swapped;
-    do {
-      swapped = false;
-      for (let i = 0; i < len - 1; i++) {
-        if (array[i] > array[i + 1]) {
-          const temp = array[i];
-          array[i] = array[i + 1];
-          array[i + 1] = temp;
-          swapped = true;
-          steps.push(array.slice());
-        }
+function bubbleSort(array, updateCounts) {
+  let comparisons = 0;
+  let swaps = 0;
+  const steps = [array.slice()];
+
+  const len = array.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < len - 1; i++) {
+      comparisons++;
+      if (array[i] > array[i + 1]) {
+        swaps++;
+        const temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+        swapped = true;
+        steps.push(array.slice());
       }
-    } while (swapped);
-  
-    return steps;
-  }
-  
-  export default bubbleSort;
-  
+    }
+  } while (swapped);
+
+  updateCounts(comparisons, swaps);
+  return steps;
+}
+
+export default bubbleSort;

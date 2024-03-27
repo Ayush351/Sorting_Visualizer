@@ -1,0 +1,24 @@
+/* StatisticsCard.css */
+
+.statistics-card {
+    background-color: #083144; /* Dark slate background */
+    color: white; /* White text */
+    padding: 20px; /* Add padding around the content */
+    border-radius: 5px; /* Add rounded corners */
+    width: 100%; /* Take up the full width of its container */
+    height: 100%; /* Take up the full height of its container */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+  }
+  
+  .statistics-card h2 {
+    color: 083144; /* Green heading */
+  }
+  
+  .statistics-card p {
+    margin: 5px 0; /* Add margin between paragraphs */
+  }
+  
